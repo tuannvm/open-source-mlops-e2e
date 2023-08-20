@@ -1,9 +1,16 @@
 {
   "image": "mcr.microsoft.com/devcontainers/python:3.10",
-  "extensions": [
-    "Iterative.dvc",
-    "ms-python.python",
-    "redhat.vscode-yaml"
-  ],
-  "postCreateCommand": "pip install --user -r requirements.txt"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Iterative.dvc",
+        "ms-python.python",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install --user -r requirements.txt",
+  "mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	]
 }
